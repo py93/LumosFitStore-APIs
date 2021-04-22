@@ -33,8 +33,7 @@ const addresses = [...Array(5)].map((_) => ({
           contactNo: faker.phone.phoneNumber()
         }));
       
-const cart = products.map((product)=> ({...product, cartQty:1, status:{exists:false}}));
-console.log(JSON.stringify(cart));
+const cart = [];
 const wishlist = [];
 
 module.exports = {products, addresses, cart, wishlist}

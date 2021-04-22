@@ -29,7 +29,7 @@ app.use('/products', productsRoute)
 app.use('/categories', categoriesRoute)
 app.use('/cart', cartRoute)
 app.use('/wishlist', wishlistRoute)
-// app.use('addresses', addressesRoute)
+app.use('/addresses', addressesRoute)
 
 app.get('/', (req, res) => {
   res.json({message: "Welcome to LumosFit"});
