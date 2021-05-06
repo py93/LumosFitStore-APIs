@@ -1,24 +1,17 @@
 const express = require('express')
 const productRouter = express.Router();
 const {Product} = require('../models/product.model')
-const {products} = require('../db/data.js');
 
 productRouter.route('/')
 .get(async (req,res) => {
   try{
-    res.json({success:true, products})
+      const products = await Product.find({});
+      res.json({success: true, products})
   }
-  catch(err){
+  catch(err)
+  {
     res.status(500).json({success:false, message: "Unable to get products", errorMessage: err.message})
   }
-  // try{
-  //     const products = await Product.find({});
-  //     res.json({success: true, products})
-  // }
-  // catch(err)
-  // {
-  //   res.status(500).json({success:false, message: "Unable to get products", errorMessage: err.message})
-  // }
 })
 .post( async (req,res)=>{
   try{
